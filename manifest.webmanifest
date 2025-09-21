@@ -1,0 +1,15 @@
+{
+    "name": "Tacofy",
+    "short_name": "Tacofy",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0b",
+    "theme_color": "#0F36FF",
+    "icons": [
+        {
+            "src": "assets/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

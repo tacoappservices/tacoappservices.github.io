@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tacofy</title>
+  <meta name="description"
+    content="Tacofy® - La herramienta definitiva para transportistas. Controla tus tiempos de conducción, recibe alertas de licencias y disfruta de Tacofy® Maps, nuestro GPS para camiones." />
+  <meta property="og:title" content="Tacofy®" />
+  <meta property="og:description" content="Control de tiempos para transportistas" />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tacoappservices.github.io/" />
+  <meta name="theme-color" content="#0F36FF" />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="canonical" href="https://tacoappservices.github.io/" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tacofy®" />
+  <meta name="twitter:description" content="Control de tiempos para transportistas" />
+  <meta name="twitter:image" content="assets/logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Tailwind CDN utilities (preflight disabled to avoid resets) -->
+  <script>
+    window.tailwind = {
+      config: {
+        darkMode: 'media',
+        corePlugins: { preflight: false }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Marked: robust Markdown renderer for legal dialogs -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- DOMPurify: sanitize HTML generated from Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"></script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Tacofy",
+  "url": "https://tacoappservices.github.io/",
+  "logo": "https://tacoappservices.github.io/assets/logo.png",
+    "sameAs": [
+      "https://apps.apple.com/us/app/tacofy/id1521835532",
+      "https://play.google.com/store/apps/details?id=com.taco.taco"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Mobile Application (iOS) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Tacofy",
+    "operatingSystem": "iOS",
+    "applicationCategory": "BusinessApplication",
+  "url": "https://tacoappservices.github.io/",
+    "installUrl": "https://apps.apple.com/us/app/tacofy/id1521835532",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tacofy"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Mobile Application (Android) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Tacofy",
+    "operatingSystem": "Android",
+    "applicationCategory": "BusinessApplication",
+  "url": "https://tacoappservices.github.io/",
+    "installUrl": "https://play.google.com/store/apps/details?id=com.taco.taco",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tacofy"
+    }
+  }
+  </script>
+  <script defer src="script.js"></script>
+</head>
+
+<body class="antialiased selection:bg-sky-500/20 selection:text-white">
+  <a class="skip-link" href="#main">Ir al contenido</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Tacofy inicio">
+        <img class="brand__logo" src="assets/logo.png" alt="Tacofy" width="32" height="32" decoding="async" />
+        <span class="brand__name tracking-tight">Tacofy®</span>
+      </a>
+      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú" aria-controls="siteNav" aria-expanded="false">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
+      <nav id="siteNav" class="nav" aria-label="Principal">
+        <a href="#preview"
+          class="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40">Vista
+          Previa</a>
+        <a href="#faq"
+          class="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40">FAQ</a>
+        <button
+          class="btn btn--ghost rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+          data-open="legal-politica_privacidad">Privacidad</button>
+        <button
+          class="btn btn--ghost rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+          data-open="legal-condiciones_contratacion">Términos</button>
+        <button
+          class="btn btn--ghost rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+          data-open="legal-aviso_legal">Legal</button>
+        <a class="btn btn--brand rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+          href="#download">Descargar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__wrap">
+        <div class="hero__text">
+          <h1 class="text-transparent bg-clip-text drop-shadow md:drop-shadow-lg" style="color: white;">Monitoriza tus
+            tiempos con Tacofy®</h1>
+          <p class="lede">
+            La herramienta definitiva para transportistas. Controla tus tiempos de conducción y descanso, recibe alertas
+            de licencias y disfruta de Tacofy® Maps: nuestro GPS especializado para camiones.
+          </p>
+          <div class="cta" id="download">
+            <a class="store store--ios focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/50"
+              href="https://apps.apple.com/us/app/tacofy/id1521835532" aria-label="Descargar en App Store">
+              <span class="store__icon" aria-hidden="true"><i class="bi bi-apple"></i></span>
+              <span class="store__text">
+                <small>Descargar en</small>
+                App Store
+              </span>
+            </a>
+            <a class="store store--android focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/50"
+              href="https://play.google.com/store/apps/details?id=com.taco.taco" aria-label="Obtener en Google Play">
+              <span class="store__icon" aria-hidden="true"><i class="bi bi-google-play"></i></span>
+              <span class="store__text">
+                <small>Disponible en</small>
+                Google Play
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual" id="preview" aria-label="Vista previa de la app">
+          <div class="devices">
+            <!-- Mock del teléfono -->
+            <figure class="device phone" aria-label="Vista previa móvil">
+              <div class="device__frame">
+                <div class="device__notch" aria-hidden="true"></div>
+                <div class="screen">
+                  <picture>
+                    <source srcset="assets/screenshots/light/phone_light.png" media="(prefers-color-scheme: light)">
+                    <img src="assets/screenshots/dark/phone_dark.png" alt="Vista previa de Tacofy® en móvil"
+                      class="phone-screenshot" width="100%" height="100%" decoding="async" />
+                  </picture>
+                </div>
+              </div>
+              <figcaption>Teléfono</figcaption>
+            </figure>
+
+            <!-- Mock del tablet -->
+            <figure class="device tablet" aria-label="Vista previa tablet">
+              <div class="device__frame">
+                <div class="screen">
+                  <picture>
+                    <source srcset="assets/screenshots/light/tablet_light.png" media="(prefers-color-scheme: light)">
+                    <img src="assets/screenshots/dark/tablet_dark.png" alt="Vista previa de Tacofy® en tablet"
+                      class="tablet-screenshot" width="100%" height="100%" decoding="async" />
+                  </picture>
+                </div>
+              </div>
+              <figcaption>Tablet</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="updates" id="novedades" aria-labelledby="updates-title" hidden>
+      <div class="wrap">
+        <h2 id="updates-title">Novedades</h2>
+        <ul class="updates-list" id="updatesList" aria-label="Lista de cambios recientes"></ul>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonios" aria-labelledby="testimonials-title">
+      <div class="wrap">
+        <h2 id="testimonials-title">Testimonios</h2>
+        <div class="cards" id="testimonialsList" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <h2 id="faq-title">Preguntas Frecuentes</h2>
+
+        <!-- Barra de búsqueda FAQ -->
+        <div class="faq-search">
+          <input type="text" id="faq-search-input" placeholder="Buscar en preguntas frecuentes..."
+            aria-label="Buscar preguntas"
+            class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40 rounded-md">
+          <i class="bi bi-search"></i>
+        </div>
+        <div class="faq-filters" aria-label="Filtrar por categoría">
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="all" aria-pressed="true">Todas</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="general">General</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="maps">Maps</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="eu">UE</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="privacidad">Privacidad</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="suscripcion">Suscripción</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="uso">Uso</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="compat">Compatibilidad</button>
+          <button type="button"
+            class="filter-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            data-filter="legal">Legal</button>
+        </div>
+
+        <details class="qa qa--general">
+          <summary><span class="summary-left"><span class="badge">General</span> ¿Qué es Tacofy®?</span></summary>
+          <p>
+            Tacofy® es una herramienta pensada por y para transportistas que muestra de manera simple y visual todos los
+            tiempos que deben tener en cuenta. Controla en tiempo real los intervalos de descanso diarios, semanales y
+            bisemanales, además te avisa de la caducidad de tus licencias.
+          </p>
+        </details>
+
+        <details class="qa qa--maps">
+          <summary><span class="summary-left"><span class="badge">Maps</span> ¿Qué es Tacofy® Maps?</span></summary>
+          <p>
+            Nuestro nuevo GPS especializado para camiones con mapas siempre actualizados, rutas ADR, cálculos según peso
+            y dimensiones, alertas de tráfico, radares y mucho más, todo desde tu teléfono o tablet.
+          </p>
+        </details>
+
+        <details class="qa qa--eu">
+          <summary><span class="summary-left"><span class="badge">UE</span> ¿Funciona para rutas internacionales?</span>
+          </summary>
+          <p>
+            Sí, la herramienta está diseñada para cumplir con la normativa europea y funciona en todo el territorio de
+            la Unión Europea.
+          </p>
+        </details>
+
+        <details class="qa qa--privacidad">
+          <summary><span class="summary-left"><span class="badge">Privacidad</span> ¿Puede mi jefe consultar los
+              registros?</span></summary>
+          <p>
+            No. Tacofy® es una herramienta personal e intransferible. Los datos que recopila son exclusivamente para la
+            consulta del usuario.
+          </p>
+        </details>
+
+        <details class="qa qa--suscripcion">
+          <summary><span class="summary-left"><span class="badge">Suscripción</span> ¿Cómo funciona el sistema de
+              prueba?</span></summary>
+          <p>
+            Hemos implementado un sistema de tokens que permite probar la app viendo anuncios. También puedes comprar
+            una suscripción para acceder a todas las funciones sin publicidad.
+          </p>
+        </details>
+
+        <details class="qa qa--legal">
+          <summary><span class="summary-left"><span class="badge">Legal</span> ¿Me evita multas Tacofy®?</span>
+          </summary>
+          <p>
+            Tacofy® te ayuda a monitorizar los tiempos durante las jornadas laborales y gestionar los intervalos de
+            descanso. También te recuerda la vigencia de tus licencias, pero no puede garantizar evitar multas.
+          </p>
+        </details>
+
+        <details class="qa qa--suscripcion">
+          <summary><span class="summary-left"><span class="badge">Suscripción</span> ¿Cómo gestionar mi
+              suscripción?</span></summary>
+          <p>
+            Puedes gestionar tu suscripción directamente desde las tiendas de aplicaciones:
+          </p>
+          <div class="subscription-buttons">
+            <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener"
+              class="subscription-btn subscription-btn--ios focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/50">
+              <i class="bi bi-apple"></i>
+              <span>Gestionar en App Store</span>
+            </a>
+            <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener"
+              class="subscription-btn subscription-btn--android focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/50">
+              <i class="bi bi-google-play"></i>
+              <span>Gestionar en Google Play</span>
+            </a>
+          </div>
+        </details>
+
+        <details class="qa qa--uso">
+          <summary><span class="summary-left"><span class="badge">Uso</span> ¿Funciona sin conexión a internet?</span>
+          </summary>
+          <p>
+            Tacofy® puede funcionar parcialmente sin conexión. Las funciones básicas de control de tiempos están
+            disponibles offline, pero para sincronización de datos, actualizaciones de mapas y Tacofy® Maps necesitarás
+            conexión a internet.
+          </p>
+        </details>
+
+        <details class="qa qa--compat">
+          <summary><span class="summary-left"><span class="badge">Compatibilidad</span> ¿Es compatible con todos los
+              tacógrafos?</span></summary>
+          <p>
+            Tacofy® es compatible con la mayoría de tacógrafos digitales. La app puede funcionar de forma manual para
+            cualquier tipo de tacógrafo, permitiendo el registro manual de tiempos y descansos.
+          </p>
+        </details>
+
+        <details class="qa qa--compat">
+          <summary><span class="summary-left"><span class="badge">Compatibilidad</span> ¿Qué dispositivos son
+              compatibles?</span></summary>
+          <p>
+            Tacofy® está disponible para iOS (iPhone/iPad) y Android (teléfonos y tablets). Requiere iOS 12.0 o
+            superior, y Android 6.0 o superior para un funcionamiento óptimo.
+          </p>
+        </details>
+
+        <details class="qa qa--uso">
+          <summary><span class="summary-left"><span class="badge">Uso</span> ¿Puedo usar Tacofy® para mi flota?</span>
+          </summary>
+          <p>
+            Cada suscripción de Tacofy® es personal e individual. Para flotas, cada conductor necesitará su propia
+            cuenta. Esto garantiza la privacidad de los datos de cada transportista.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© <span id="year"></span> Tacofy®. Todos los derechos reservados.</small>
+      <div class="legal">
+        <a class="legal-link" href="politica-privacidad.html">Política de Privacidad</a>
+        <span aria-hidden="true">·</span>
+        <a class="legal-link" href="condiciones-contratacion.html">Términos y Condiciones</a>
+        <span aria-hidden="true">·</span>
+        <a class="legal-link" href="aviso-legal.html">Aviso Legal</a>
+        <span aria-hidden="true">·</span>
+        <a class="legal-link" href="support.html">Soporte</a>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Legal: Privacy -->
+  <dialog id="legal-politica_privacidad" aria-labelledby="privacy-title">
+    <form method="dialog">
+      <article class="legal-content">
+        <header>
+          <h3 id="privacy-title">Política de Privacidad</h3>
+        </header>
+        <section>
+          <p>Cargando contenido...</p>
+        </section>
+        <footer>
+          <button class="btn" value="close">Cerrar</button>
+        </footer>
+      </article>
+    </form>
+  </dialog>
+
+  <!-- Legal: Terms -->
+  <dialog id="legal-condiciones_contratacion" aria-labelledby="terms-title">
+    <form method="dialog">
+      <article class="legal-content">
+        <header>
+          <h3 id="terms-title">Condiciones de Contratación</h3>
+        </header>
+        <section>
+          <p>Cargando contenido...</p>
+        </section>
+        <footer>
+          <button class="btn" value="close">Cerrar</button>
+        </footer>
+      </article>
+    </form>
+  </dialog>
+
+  <!-- Legal: Aviso Legal -->
+  <dialog id="legal-aviso_legal" aria-labelledby="legal-title">
+    <form method="dialog">
+      <article class="legal-content">
+        <header>
+          <h3 id="legal-title">Aviso Legal</h3>
+        </header>
+        <section>
+          <p>Cargando contenido...</p>
+        </section>
+        <footer>
+          <button class="btn" value="close">Cerrar</button>
+        </footer>
+      </article>
+    </form>
+  </dialog>
+
+  <!-- Floating CTA (mobile) and Back-to-Top -->
+  <div id="floatCta" class="float-cta" aria-label="Descargar Tacofy">
+    <a class="float-cta__btn float-cta__btn--ios" href="https://apps.apple.com/us/app/tacofy/id1521835532"
+      aria-label="App Store">
+      <i class="bi bi-apple" aria-hidden="true"></i>
+      <span class="float-cta__text">App Store</span>
+    </a>
+    <a class="float-cta__btn float-cta__btn--android" href="https://play.google.com/store/apps/details?id=com.taco.taco"
+      aria-label="Google Play">
+      <i class="bi bi-google-play" aria-hidden="true"></i>
+      <span class="float-cta__text">Google Play</span>
+    </a>
+  </div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+</body>
+
+</html>

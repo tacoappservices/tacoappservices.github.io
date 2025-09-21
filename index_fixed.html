@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Tacofy® — Control de Tiempos para Transportistas</title>
+    <meta name="description"
+        content="Tacofy® - La herramienta definitiva para transportistas. Controla tus tiempos de conducción, recibe alertas de licencias y disfruta de Tacofy® Maps, nuestro GPS para camiones." />
+    <meta property="og:title" content="Tacofy®" />
+    <meta property="og:description" content="Control de tiempos para transportistas" />
+    <meta property="og:image"
+        content="https://github.com/github-copilot/chat/attachments/d10b70d2-f97e-48cf-9a96-a78900474955" />
+    <meta name="theme-color" content="#0F36FF" />
+
+    <link rel="icon" type="image/png"
+        href="https://github.com/github-copilot/chat/attachments/d10b70d2-f97e-48cf-9a96-a78900474955" />
+    <link rel="apple-touch-icon"
+        href="https://github.com/github-copilot/chat/attachments/d10b70d2-f97e-48cf-9a96-a78900474955" />
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Ir al contenido</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="#top" aria-label="Tacofy inicio">
+                <img class="brand__logo"
+                    src="https://github.com/github-copilot/chat/attachments/d10b70d2-f97e-48cf-9a96-a78900474955" alt=""
+                    width="32" height="32" decoding="async" />
+                <span class="brand__name">Tacofy®</span>
+            </a>
+            <nav class="nav">
+                <a href="#preview">Vista Previa</a>
+                <a href="#faq">FAQ</a>
+                <button class="btn btn--ghost" data-open="legal-politica_privacidad">Privacidad</button>
+                <button class="btn btn--ghost" data-open="legal-condiciones_contratacion">Términos</button>
+                <button class="btn btn--ghost" data-open="legal-aviso_legal">Legal</button>
+                <a class="btn btn--brand" href="#download">Descargar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="top">
+            <div class="wrap hero__wrap">
+                <div class="hero__text">
+                    <h1>Monitoriza tus tiempos con Tacofy®</h1>
+                    <p class="lede">
+                        La herramienta definitiva para transportistas. Controla tus tiempos de conducción y descanso,
+                        recibe alertas de licencias y disfruta de Tacofy® Maps: nuestro GPS especializado para camiones.
+                    </p>
+                    <div class="cta" id="download">
+                        <a class="store store--ios" href="https://apps.apple.com/us/app/tacofy/id1521835532"
+                            aria-label="Descargar en App Store">
+                            <span class="store__icon" aria-hidden="true"></span>
+                            <span class="store__text">
+                                <small>Descargar en</small>
+                                App Store
+                            </span>
+                        </a>
+                        <a class="store store--android"
+                            href="https://play.google.com/store/apps/details?id=com.taco.taco"
+                            aria-label="Obtener en Google Play">
+                            <span class="store__icon" aria-hidden="true">▶</span>
+                            <span class="store__text">
+                                <small>Disponible en</small>
+                                Google Play
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero__visual" id="preview" aria-label="Vista previa de la app">
+                    <div class="devices">
+                        <!-- Mock del teléfono -->
+                        <figure class="device phone" aria-label="Vista previa móvil">
+                            <div class="device__frame">
+                                <div class="device__notch" aria-hidden="true"></div>
+                                <div class="screen">
+                                    <div class="screen__header">
+                                        <img src="https://github.com/github-copilot/chat/attachments/d10b70d2-f97e-48cf-9a96-a78900474955"
+                                            alt="" class="app-icon" width="24" height="24" decoding="async" />
+                                        <span>Tacofy®</span>
+                                    </div>
+                                    <div class="screen__body">
+                                        <h3>Control Total</h3>
+                                        <p class="muted">Monitoriza tus tiempos de conducción y descanso en tiempo real.
+                                        </p>
+                                        <button class="btn btn--brand btn--block">Ver Dashboard</button>
+                                        <button class="btn btn--ghost btn--block">Configurar Licencias</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption>Teléfono</figcaption>
+                        </figure>
+
+                        <!-- Mock del tablet -->
+                        <figure class="device tablet" aria-label="Vista previa tablet">
+                            <div class="device__frame">
+                                <div class="screen">
+                                    <img src="assets/screenshots/dark/tablet_dark.png"
+                                        alt="Vista previa de Tacofy® en tablet" class="tablet-screenshot" width="100%"
+                                        height="100%" decoding="async" />
+                                </div>
+                            </div>
+                            <figcaption>Tablet</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq" id="faq" aria-labelledby="faq-title">
+            <div class="wrap">
+                <h2 id="faq-title">Preguntas Frecuentes</h2>
+
+                <details class="qa">
+                    <summary>¿Qué es Tacofy®?</summary>
+                    <p>
+                        Tacofy® es una herramienta pensada por y para transportistas que muestra de manera simple y
+                        visual todos los tiempos que deben tener en cuenta. Controla en tiempo real los intervalos de
+                        descanso diarios, semanales y bisemanales, además te avisa de la caducidad de tus licencias.
+                    </p>
+                </details>
+
+                <details class="qa">
+                    <summary>¿Qué es Tacofy® Maps?</summary>
+                    <p>
+                        Nuestro nuevo GPS especializado para camiones con mapas siempre actualizados, rutas ADR,
+                        cálculos según peso y dimensiones, alertas de tráfico, radares y mucho más, todo desde tu
+                        teléfono o tablet.
+                    </p>
+                </details>
+
+                <details class="qa">
+                    <summary>¿Funciona para rutas internacionales?</summary>
+                    <p>
+                        Sí, la herramienta está diseñada para cumplir con la normativa europea y funciona en todo el
+                        territorio de la Unión Europea.
+                    </p>
+                </details>
+
+                <details class="qa">
+                    <summary>¿Puede mi jefe consultar los registros?</summary>
+                    <p>
+                        No. Tacofy® es una herramienta personal e intransferible. Los datos que recopila son
+                        exclusivamente para la consulta del usuario.
+                    </p>
+                </details>
+
+                <details class="qa">
+                    <summary>¿Cómo funciona el sistema de prueba?</summary>
+                    <p>
+                        Hemos implementado un sistema de tokens que permite probar la app viendo anuncios. También
+                        puedes comprar una suscripción para acceder a todas las funciones sin publicidad.
+                    </p>
+                </details>
+
+                <details class="qa">
+                    <summary>¿Me evita multas Tacofy®?</summary>
+                    <p>
+                        Tacofy® te ayuda a monitorizar los tiempos durante las jornadas laborales y gestionar los
+                        intervalos de descanso. También te recuerda la vigencia de tus licencias, pero no puede
+                        garantizar evitar multas.
+                    </p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <small>© <span id="year"></span> Tacofy®. Todos los derechos reservados.</small>
+            <div class="legal">
+                <button class="linklike" data-open="legal-politica_privacidad">Política de Privacidad</button>
+                <span aria-hidden="true">·</span>
+                <button class="linklike" data-open="legal-condiciones_contratacion">Términos y Condiciones</button>
+                <span aria-hidden="true">·</span>
+                <button class="linklike" data-open="legal-aviso_legal">Aviso Legal</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Legal: Privacy -->
+    <dialog id="legal-politica_privacidad" aria-labelledby="privacy-title">
+        <form method="dialog">
+            <article class="legal-content">
+                <header>
+                    <h3 id="privacy-title">Política de Privacidad</h3>
+                </header>
+                <section>
+                    <p>Cargando contenido...</p>
+                </section>
+                <footer>
+                    <button class="btn" value="close">Cerrar</button>
+                </footer>
+            </article>
+        </form>
+    </dialog>
+
+    <!-- Legal: Terms -->
+    <dialog id="legal-condiciones_contratacion" aria-labelledby="terms-title">
+        <form method="dialog">
+            <article class="legal-content">
+                <header>
+                    <h3 id="terms-title">Condiciones de Contratación</h3>
+                </header>
+                <section>
+                    <p>Cargando contenido...</p>
+                </section>
+                <footer>
+                    <button class="btn" value="close">Cerrar</button>
+                </footer>
+            </article>
+        </form>
+    </dialog>
+
+    <!-- Legal: Aviso Legal -->
+    <dialog id="legal-aviso_legal" aria-labelledby="legal-title">
+        <form method="dialog">
+            <article class="legal-content">
+                <header>
+                    <h3 id="legal-title">Aviso Legal</h3>
+                </header>
+                <section>
+                    <p>Cargando contenido...</p>
+                </section>
+                <footer>
+                    <button class="btn" value="close">Cerrar</button>
+                </footer>
+            </article>
+        </form>
+    </dialog>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tacoappservices.github.io/sitemap.xml

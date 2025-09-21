@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Aviso Legal - Tacofy®</title>
+    <meta name="description" content="Aviso Legal de Tacofy® - Información legal sobre el sitio web y la aplicación." />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .legal-page {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .legal-page h1 {
+            color: var(--brand);
+            margin-bottom: 1.5rem;
+        }
+
+        .legal-page .content {
+            background: var(--panel);
+            padding: 2rem;
+            border-radius: var(--radius);
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--brand);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--brand);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: var(--brand);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="legal-page">
+        <a href="index.html" class="back-link">← Volver a Tacofy®</a>
+        <h1>Aviso Legal</h1>
+        <nav id="toc" class="toc" aria-label="Índice"></nav>
+        <div class="content" id="legal-content">
+            <p>Cargando contenido...</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const target = document.getElementById('legal-content');
+
+            function escapeHtml(s) {
+                return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            const markdownToHtml = (md) => (window.marked ? window.marked.parse(md) : `<pre>${escapeHtml(md)}</pre>`);
+
+            async function loadMarkdown(path) {
+                const res = await fetch(path);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return await res.text();
+            }
+
+            function buildToc(container) {
+                const headings = Array.from(container.querySelectorAll('h2, h3'));
+                if (!headings.length) return;
+                const toc = document.getElementById('toc');
+                const ul = document.createElement('ul');
+                ul.style.listStyle = 'none';
+                ul.style.padding = '0';
+                ul.style.margin = '0 0 1rem';
+                let currentH2Li = null;
+                headings.forEach(h => {
+                    if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
+                    const a = document.createElement('a');
+                    a.href = '#' + h.id;
+                    a.textContent = h.textContent;
+                    a.style.textDecoration = 'none';
+                    a.style.color = 'var(--ink)';
+                    a.style.opacity = '0.9';
+                    const li = document.createElement('li');
+                    li.style.margin = '.25rem 0';
+                    li.appendChild(a);
+                    if (h.tagName.toLowerCase() === 'h2') {
+                        currentH2Li = li;
+                        ul.appendChild(li);
+                    } else {
+                        const sub = currentH2Li?.querySelector('ul') || document.createElement('ul');
+                        sub.style.listStyle = 'none';
+                        sub.style.paddingLeft = '1rem';
+                        if (!currentH2Li?.querySelector('ul')) currentH2Li?.appendChild(sub);
+                        sub.appendChild(li);
+                    }
+                });
+                toc.appendChild(ul);
+            }
+
+            try {
+                const md = await loadMarkdown('assets/documents/aviso_legal.md');
+                target.innerHTML = markdownToHtml(md);
+                buildToc(target);
+            } catch (e) {
+                target.innerHTML = '<p>No se pudo cargar el documento completo. Intenta de nuevo más tarde.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>
