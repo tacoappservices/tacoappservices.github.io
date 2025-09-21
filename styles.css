@@ -916,11 +916,16 @@ dialog::backdrop {
   display: grid;
   gap: .5rem;
   background: color-mix(in oklab, var(--panel), transparent 10%);
+  overflow: hidden;
+  /* keep badges within card */
 }
 
 .testimonial p {
   margin: 0;
   font-style: italic;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .testimonial footer {
@@ -932,6 +937,8 @@ dialog::backdrop {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .4rem .6rem;
 }
 
 .stars {
@@ -958,6 +965,7 @@ dialog::backdrop {
   color: #e9eefc;
   border: 1px solid color-mix(in oklab, var(--line), white 22%);
   background: color-mix(in oklab, var(--panel), transparent 10%);
+  white-space: nowrap;
 }
 
 .source--google {
@@ -966,6 +974,12 @@ dialog::backdrop {
 
 .source--apple {
   background: linear-gradient(180deg, #1a1a1a, #0f141e);
+}
+
+/* Responsive grid just for testimonials */
+.testimonials .cards {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
 }
 
 /* Subscription buttons styling */
