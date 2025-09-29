@@ -10,6 +10,13 @@
         "text": "La aplicación es muy buena idea,nunca pensé encontrar una de estas así de útiles.",
         "author": "Breloo...",
         "role": "transportista nacional",
+        "rating": 4,
+        "source": "google-play"
+    },
+    {
+        "text": "",
+        "author": "Abel...",
+        "role": "transportista nacional",
         "rating": 5,
         "source": "google-play"
     }
